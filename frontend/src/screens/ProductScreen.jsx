@@ -9,6 +9,7 @@ import {
   Card,
   Button,
 } from "react-bootstrap";
+import Meta from "../components/Meta";
 import { useDispatch, useSelector } from "react-redux";
 import {
   useGetProductDetailsQuery,
@@ -73,6 +74,12 @@ const ProductScreen = () => {
         <Message variant="danger">{error.data?.message || error.error}</Message>
       ) : (
         <>
+          <Meta
+            title={product.name}
+            description={product.description}
+            keywords={product.keywords}
+          />
+
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />
